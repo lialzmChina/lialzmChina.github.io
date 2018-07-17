@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>java并发(Synchronized关键字) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java中的同步块使用synchronized标记,所有同步在一个对象上的同步块在同时只能被一个线程进入并执行,可保证其内部的共享变量实现多线程可见性,也叫内置锁  基本使用 1234public synchronized void test()&amp;#123;&amp;#125; 执行方式 尝试获取锁 如果获得锁则执行方法体 如果无法获取锁则等待,并且不断尝试获得锁,一旦锁释放可能发生锁竞争问题在什么时候">
+<meta name="keywords" content="java,并发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java并发(Synchronized关键字)">
+<meta property="og:url" content="http://yoursite.com/2018/05/19/java并发(Synchronized关键字)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="java中的同步块使用synchronized标记,所有同步在一个对象上的同步块在同时只能被一个线程进入并执行,可保证其内部的共享变量实现多线程可见性,也叫内置锁  基本使用 1234public synchronized void test()&amp;#123;&amp;#125; 执行方式 尝试获取锁 如果获得锁则执行方法体 如果无法获取锁则等待,并且不断尝试获得锁,一旦锁释放可能发生锁竞争问题在什么时候">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-06T08:54:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java并发(Synchronized关键字)">
+<meta name="twitter:description" content="java中的同步块使用synchronized标记,所有同步在一个对象上的同步块在同时只能被一个线程进入并执行,可保证其内部的共享变量实现多线程可见性,也叫内置锁  基本使用 1234public synchronized void test()&amp;#123;&amp;#125; 执行方式 尝试获取锁 如果获得锁则执行方法体 如果无法获取锁则等待,并且不断尝试获得锁,一旦锁释放可能发生锁竞争问题在什么时候">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-java并发(Synchronized关键字)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/19/java并发(Synchronized关键字)/" class="article-date">
+  <time datetime="2018-05-19T14:30:00.000Z" itemprop="datePublished">2018-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java并发(Synchronized关键字)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>java中的同步块使用synchronized标记,所有同步在一个对象上的同步块在同时只能被一个线程进入并执行,可保证其内部的共享变量实现多线程可见性,也叫内置锁</p>
+</blockquote>
+<p>基本使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="执行方式"><a href="#执行方式" class="headerlink" title="执行方式"></a>执行方式</h2><ol>
+<li>尝试获取锁</li>
+<li>如果获得锁则执行方法体</li>
+<li>如果无法获取锁则等待,并且不断尝试获得锁,一旦锁释放可能发生锁竞争问题<br>在什么时候获取锁?</li>
+</ol>
+<p>线程在加入同步代码块之前获取锁</p>
+<p>什么时候释放锁?</p>
+<p>退出同步代码块时自动释放锁(不论是正常退出还是抛出异常)</p>
+<p>缺点:锁竞争问题，在高并发、线程数量高时会引起 CPU 占用居高不下，或者直接宕机。</p>
+<h2 id="JMM-对-synchroized-相关规定"><a href="#JMM-对-synchroized-相关规定" class="headerlink" title="JMM 对 synchroized 相关规定"></a>JMM 对 synchroized 相关规定</h2><ul>
+<li>线程解锁前，必须将工作内存中数据刷新到主内存。</li>
+<li>线程加锁时，必须先清空工作内存，然后将主内存数据刷新到工作内存</li>
+</ul>
+<h2 id="类锁和对象锁"><a href="#类锁和对象锁" class="headerlink" title="类锁和对象锁"></a>类锁和对象锁</h2><p>类锁:作用在静态方法上,<strong>所有对象共享一把锁</strong>,存在锁竞争</p>
+<p>对象锁:作用在非静态方法上,<strong>一个对象一把锁,多个对象之间不会锁竞争</strong></p>
+<h2 id="对象锁"><a href="#对象锁" class="headerlink" title="对象锁"></a>对象锁</h2><h3 id="实例方法同步"><a href="#实例方法同步" class="headerlink" title="实例方法同步"></a>实例方法同步</h3><p>java实例方法同步在拥有该方法的对象上</p>
+<p>​例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public synchronized void add(int value)&#123;</span><br><span class="line">    this.count += value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实例方法中的同步块"><a href="#实例方法中的同步块" class="headerlink" title="实例方法中的同步块"></a>实例方法中的同步块</h3><p>用来同步方法中的一部分,同步实例方法使用调用方法本身的实例作为监视器对象</p>
+<p>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">   <span class="keyword">synchronized</span>(<span class="keyword">this</span>)&#123;</span><br><span class="line">   <span class="keyword">this</span>.count += value;</span><br><span class="line">   &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>使用this关键字即为调用add方法的实例本身​</p>
+<p><code>synchronized</code>里面除了传入<code>this</code>还可以是任意对象</p>
+<h3 id="使用同步块的好处"><a href="#使用同步块的好处" class="headerlink" title="使用同步块的好处"></a>使用同步块的好处</h3><ul>
+<li>细度更小</li>
+<li>更灵活,可以是任意对象,任意类</li>
+</ul>
+<h2 id="类锁"><a href="#类锁" class="headerlink" title="类锁"></a>类锁</h2><h3 id="synchronized-类-class"><a href="#synchronized-类-class" class="headerlink" title="synchronized (类.class)"></a>synchronized (类.class)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">synchronized</span>(类名.class)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态方法中的同步块"><a href="#静态方法中的同步块" class="headerlink" title="静态方法中的同步块"></a>静态方法中的同步块</h3><pre><code>public static synchronized void log1(String msg1, String msg2){
+log.writeln(msg1);
+log.writeln(msg2);
+}
+</code></pre><p>和synchronized (类.class)效果相同</p>
+<h3 id="内置锁的同步和异步"><a href="#内置锁的同步和异步" class="headerlink" title="内置锁的同步和异步"></a>内置锁的同步和异步</h3><p>第一种情况:同时执行同一个对象的两个对象锁方法,出现等待</p>
+<p>第二种情况:同时执行同一个对象的一个对象锁方法和普通方法,不等待</p>
+<p>第三种情况:同时执行同一个对象/两个对象的两个类锁方法,出现等待</p>
+<p>第四种情况:一个类锁一个普通方法(不论是同一个对象还是两个对象),不等待</p>
+<p>第五种情况:一个类锁和一个对象锁(不论是同一个对象还是两个对象),不等待</p>
+<p>结论:</p>
+<ol>
+<li>类锁和对象锁互不影响</li>
+<li>对象锁只对<code>synchronized</code>修饰的方法同步执行,普通方法异步执行,类锁同理</li>
+</ol>
+<h2 id="synchronized的锁重入"><a href="#synchronized的锁重入" class="headerlink" title="synchronized的锁重入"></a>synchronized的锁重入</h2><ul>
+<li>同一个线程得到了一个对象的锁后,再次请求该对象时可以再次获得该对象的锁</li>
+<li>父子类也可重入</li>
+</ul>
+<h2 id="锁失效问题"><a href="#锁失效问题" class="headerlink" title="锁失效问题"></a>锁失效问题</h2><blockquote>
+<p>修改对象的引用锁会失效</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TheardTest002</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count0;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String lock=<span class="string">"lock"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (lock)&#123;</span><br><span class="line">            count0++;</span><br><span class="line">            lock=<span class="string">""</span>;<span class="comment">//修改对象</span></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Thread.currentThread().getName() + <span class="string">","</span> + <span class="keyword">new</span> Date().getTime() + <span class="string">","</span>+ count0);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        TheardTest002 theardTest0 = <span class="keyword">new</span> TheardTest002();</span><br><span class="line"></span><br><span class="line">        Thread thread0 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                theardTest0.doSomething();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                theardTest0.doSomething();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        thread0.start();</span><br><span class="line">        thread1.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Thread-0,1522237994517,2</span><br><span class="line">Thread-1,1522237994517,2</span><br></pre></td></tr></table></figure>
+<p>上面的代码如果不对lock的引用做修改则是线程安全的依次输出1,2,但是因为lock被改变了,变成两个对象锁了,线程2获取到了新的对象锁,不再互斥</p>
+<h2 id="死锁问题"><a href="#死锁问题" class="headerlink" title="死锁问题"></a>死锁问题</h2><blockquote>
+<p>两个或者两个以上线程互相持有锁,永远在互相等待</p>
+</blockquote>
+<p>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TheardTest003</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">(TheardTest004 theardTest004)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"进入-&gt;doSomething"</span>);</span><br><span class="line">        <span class="comment">//持有theardTest003的锁,尝试获取theardTest004的锁</span></span><br><span class="line">        theardTest004.doSomething2(<span class="keyword">this</span>);</span><br><span class="line">        System.out.println(<span class="string">"结束-&gt;doSomething"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TheardTest004</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">doSomething2</span><span class="params">(TheardTest003 theardTest003)</span> </span>&#123;</span><br><span class="line">            <span class="comment">//持有theardTest004锁,尝试获取theardTest003的锁</span></span><br><span class="line">            System.out.println(<span class="string">"进入-&gt;doSomething2"</span>);</span><br><span class="line">            theardTest003.doSomething(<span class="keyword">this</span>);</span><br><span class="line">            System.out.println(<span class="string">"结束-&gt;doSomething2"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TheardTest003 theardTest003 = <span class="keyword">new</span> TheardTest003();</span><br><span class="line">        TheardTest004 theardTest004 = <span class="keyword">new</span> TheardTest003().new TheardTest004();</span><br><span class="line">        Thread thread1 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                theardTest003.doSomething(theardTest004);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                theardTest004.doSomething2(theardTest003);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/19/java并发(Synchronized关键字)/" data-id="cjjpeufb0000a7h5man2r08ld" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/08/java如何排查内存溢出/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java如何排查内存溢出
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/04/06/Java内存模型学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java内存模型学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/并发/" style="font-size: 15px;">并发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/17/Elasticsearch建模/">Elasticsearch建模</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/log4j配置经验/">log4j配置经验</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/08/java如何排查内存溢出/">java如何排查内存溢出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/19/java并发(Synchronized关键字)/">java并发(Synchronized关键字)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/06/Java内存模型学习笔记/">Java内存模型学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

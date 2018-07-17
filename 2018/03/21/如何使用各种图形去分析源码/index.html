@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>如何使用各种图形去分析源码 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="为什么要画图  直观 人脑的容量有限,使用图来抽象复杂的过程   流程图使用markdown画流程图 语法规则:定义变量 变量名=&amp;gt;操作: 名称常用操作 开始(start)结束(end)流程(operation)判断(condition)连接 -&amp;gt;判断 condition(yes)或condition(no)修正连接线位置 变量名(指定方向)或者condition(yes,指定方向)">
+<meta name="keywords" content="开发工具">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用各种图形去分析源码">
+<meta property="og:url" content="http://yoursite.com/2018/03/21/如何使用各种图形去分析源码/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="为什么要画图  直观 人脑的容量有限,使用图来抽象复杂的过程   流程图使用markdown画流程图 语法规则:定义变量 变量名=&amp;gt;操作: 名称常用操作 开始(start)结束(end)流程(operation)判断(condition)连接 -&amp;gt;判断 condition(yes)或condition(no)修正连接线位置 变量名(指定方向)或者condition(yes,指定方向)">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-21-081200.jpg">
+<meta property="og:updated_time" content="2018-04-29T04:08:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何使用各种图形去分析源码">
+<meta name="twitter:description" content="为什么要画图  直观 人脑的容量有限,使用图来抽象复杂的过程   流程图使用markdown画流程图 语法规则:定义变量 变量名=&amp;gt;操作: 名称常用操作 开始(start)结束(end)流程(operation)判断(condition)连接 -&amp;gt;判断 condition(yes)或condition(no)修正连接线位置 变量名(指定方向)或者condition(yes,指定方向)">
+<meta name="twitter:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-21-081200.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-如何使用各种图形去分析源码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/21/如何使用各种图形去分析源码/" class="article-date">
+  <time datetime="2018-03-21T08:08:25.000Z" itemprop="datePublished">2018-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何使用各种图形去分析源码
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>为什么要画图</p>
+<ol>
+<li>直观</li>
+<li>人脑的容量有限,使用图来抽象复杂的过程</li>
+</ol>
+</blockquote>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p>使用markdown画流程图</p>
+<p>语法规则:<br>定义变量 变量名=&gt;操作: 名称<br>常用操作 开始(start)结束(end)流程(operation)判断(condition)<br>连接 -&gt;<br>判断 condition(yes)或condition(no)<br>修正连接线位置 变量名(指定方向)或者condition(yes,指定方向) 默认为下<br>添加url e=&gt;end:&gt;http:baidu.com</p>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 用户登陆</span><br><span class="line">op=&gt;operation: 登陆操作</span><br><span class="line">cond=&gt;condition: 登陆成功 Yes or No?</span><br><span class="line">e=&gt;end: 进入后台</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 用户登陆</span><br><span class="line">op=&gt;operation: 登陆操作</span><br><span class="line">cond=&gt;condition: 登陆成功 Yes or No?</span><br><span class="line">e=&gt;end: 进入后台</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br></pre></td></tr></table></figure>
+<h2 id="函数调用图"><a href="#函数调用图" class="headerlink" title="函数调用图"></a>函数调用图</h2><blockquote>
+<p>在阅读源码的过程中经常需要记录关键的方法调用关系,我使用DOT语法来画</p>
+</blockquote>
+<p>我自己定义了一些画调用图的规则,可以参考下</p>
+<ol>
+<li>不同的类使用不同的子图,使用<code>label</code>标识类名</li>
+<li><code>a-&gt;b</code>标识a调用了b</li>
+<li>遇到同名方法则带上参数比如<code>initializeBean(String,Object, RootBeanDefinition)</code></li>
+</ol>
+<p>源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a();</span><br><span class="line">    b();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">a</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">b</span><span class="params">()</span></span>&#123;</span><br><span class="line">c()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">c</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="keyword">new</span> Test2().t2();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">t2</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">digraph IOC1 &#123;</span><br><span class="line">rankdir=&quot;TB&quot;</span><br><span class="line"> node [fontname = &quot;Verdana&quot;, fontsize = 10, color=&quot;skyblue&quot;, shape=&quot;record&quot;];</span><br><span class="line"> 	subgraph cluster_Test&#123;</span><br><span class="line"> 		label=&quot;Test&quot;</span><br><span class="line"> 		main-&gt;a [label=&quot;1&quot;]</span><br><span class="line"> 		main-&gt;b [label=&quot;2&quot;]</span><br><span class="line"> 		b-&gt;c</span><br><span class="line"> 		&#125;</span><br><span class="line"></span><br><span class="line"> 		subgraph cluster_Test2&#123;</span><br><span class="line"> 		label=&quot;Test2&quot;</span><br><span class="line"> 		c-&gt;t2</span><br><span class="line"> 		&#125;</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<p><img src="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-21-081200.jpg" alt="Alt text"></p>
+<h2 id="时序图"><a href="#时序图" class="headerlink" title="时序图"></a>时序图</h2><blockquote>
+<p>时序图我一般用来做方法调用的抽象表达,函数调用图是非常详细的调用流程,而时序图只画重点流程</p>
+</blockquote>
+<p>markdown也可以画时序图,不过我一般使用plantuml</p>
+<p>比如上面的函数调用图转化为时序图就是</p>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line"></span><br><span class="line">activate Test</span><br><span class="line"></span><br><span class="line">activate Test2</span><br><span class="line"></span><br><span class="line">Test-&gt;Test2:c</span><br><span class="line"></span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@startuml</span><br><span class="line"></span><br><span class="line">activate Test</span><br><span class="line"></span><br><span class="line">activate Test2</span><br><span class="line"></span><br><span class="line">Test-&gt;Test2:c</span><br><span class="line"></span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
+<p><a href="http://plantuml.com/" target="_blank" rel="noopener">plantuml语法</a></p>
+<h2 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h2><blockquote>
+<p>类图可以用于表达类的结构,特别是源码中使用了一些设计模式时,使用类图可以缕清楚结构</p>
+</blockquote>
+<p>使用plantuml绘制类图,极为方便,基本只需要复制源码就行</p>
+<p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">interface Advice &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Interceptor extends Advice&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface MethodInterceptor extends Interceptor&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MethodBeforeAdviceInterceptor implements MethodInterceptor&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">interface Advice &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Interceptor extends Advice&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface MethodInterceptor extends Interceptor&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MethodBeforeAdviceInterceptor implements MethodInterceptor&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/21/如何使用各种图形去分析源码/" data-id="cjjpeufav00057h5mqrd309iy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发工具/">开发工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/04/06/线程的基本使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          线程的基本使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/19/spring源码解析-开篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring源码解析-开篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Elasticsearch/">Elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开发工具/">开发工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/java/" style="font-size: 20px;">java</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/并发/" style="font-size: 15px;">并发</a> <a href="/tags/开发工具/" style="font-size: 10px;">开发工具</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/17/Elasticsearch建模/">Elasticsearch建模</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/06/log4j配置经验/">log4j配置经验</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/08/java如何排查内存溢出/">java如何排查内存溢出</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/19/java并发(Synchronized关键字)/">java并发(Synchronized关键字)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/06/Java内存模型学习笔记/">Java内存模型学习笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
