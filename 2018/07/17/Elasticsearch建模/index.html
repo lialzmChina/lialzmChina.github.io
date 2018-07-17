@@ -87,12 +87,13 @@
 <meta property="og:site_name" content="lialzm的博客">
 <meta property="og:description" content="什么是数据建模数据建模是一个用于定义和分析在组织的信息系统的范围内支持商业流程所需的数据要求的过程 数据类型 在索引的时候,如果字段第一次出现会自动是吧为某个类型 字段一旦设置了类型就不可更改  基本数据类型字符串:text,keyword数值型:long,interger,short,byte,double,float,half_float,scaled_float布尔:boolean日期:da">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-06-06-103226.png">
 <meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-06-18-141951.png">
-<meta property="og:updated_time" content="2018-07-17T10:25:13.000Z">
+<meta property="og:updated_time" content="2018-07-17T10:35:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch建模">
 <meta name="twitter:description" content="什么是数据建模数据建模是一个用于定义和分析在组织的信息系统的范围内支持商业流程所需的数据要求的过程 数据类型 在索引的时候,如果字段第一次出现会自动是吧为某个类型 字段一旦设置了类型就不可更改  基本数据类型字符串:text,keyword数值型:long,interger,short,byte,double,float,half_float,scaled_float布尔:boolean日期:da">
-<meta name="twitter:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-06-18-141951.png">
+<meta name="twitter:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-06-06-103226.png">
 
 
 
@@ -368,6 +369,8 @@
 <p>similarity:指定文档评分模型</p>
 <p><strong>store</strong>:是否存储具体的值</p>
 <p>term_vector: 设置词向量</p>
+<p>建议参数设定流程</p>
+<p><img src="http://7fvicu.com1.z0.glb.clouddn.com/2018-06-06-103226.png" alt=""></p>
 <h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p>增加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl -XPUT &quot;http://elasticsearch:9200/&#123;index_nmae&#125;/_mapping/&#123;type&#125;&quot; -H &apos;Content-Type: application/json&apos; -d&apos;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;properties&quot;:&#123;</span><br><span class="line">    &quot;&#123;field_name1&#125;&quot;:&#123;</span><br><span class="line">      &quot;type&quot;:&quot;keyword&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;&#123;field_name2&#125;&quot;:&#123;</span><br><span class="line">      &quot;type&quot;:&quot;text&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&apos;</span><br></pre></td></tr></table></figure>
 <p>获取已经定义的mapping</p>
