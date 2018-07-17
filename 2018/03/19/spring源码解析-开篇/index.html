@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>spring源码解析-开篇 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="做javaweb接触最多的框架莫过于spring了,随着对框架使用的逐渐熟练要再上一层的话,必须了解框架底层的实现原理,乃至自己做一个框架 spring的两大核心支柱:IOC和AOP 我们先从IOC开始入手 基于spring4.3.2源码分析 什么是IOC IOC即”控制反转”,不是什么技术,而是一种设计思想.ioc意味着将你设计好的对象交给容器控制,而不是传统的在你的对象内部直接控制.  简单的">
+<meta name="keywords" content="spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring源码解析-开篇">
+<meta property="og:url" content="http://yoursite.com/2018/03/19/spring源码解析-开篇/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="做javaweb接触最多的框架莫过于spring了,随着对框架使用的逐渐熟练要再上一层的话,必须了解框架底层的实现原理,乃至自己做一个框架 spring的两大核心支柱:IOC和AOP 我们先从IOC开始入手 基于spring4.3.2源码分析 什么是IOC IOC即”控制反转”,不是什么技术,而是一种设计思想.ioc意味着将你设计好的对象交给容器控制,而不是传统的在你的对象内部直接控制.  简单的">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-06-083631.png">
+<meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-06-090659.jpg">
+<meta property="og:updated_time" content="2018-06-08T06:33:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring源码解析-开篇">
+<meta name="twitter:description" content="做javaweb接触最多的框架莫过于spring了,随着对框架使用的逐渐熟练要再上一层的话,必须了解框架底层的实现原理,乃至自己做一个框架 spring的两大核心支柱:IOC和AOP 我们先从IOC开始入手 基于spring4.3.2源码分析 什么是IOC IOC即”控制反转”,不是什么技术,而是一种设计思想.ioc意味着将你设计好的对象交给容器控制,而不是传统的在你的对象内部直接控制.  简单的">
+<meta name="twitter:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-06-083631.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spring源码解析-开篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/19/spring源码解析-开篇/" class="article-date">
+  <time datetime="2018-03-19T09:51:58.000Z" itemprop="datePublished">2018-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring源码解析-开篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>做javaweb接触最多的框架莫过于spring了,随着对框架使用的逐渐熟练要再上一层的话,必须了解框架底层的实现原理,乃至自己做一个框架</p>
+<p>spring的两大核心支柱:IOC和AOP</p>
+<p>我们先从IOC开始入手</p>
+<p><strong>基于spring4.3.2源码分析</strong></p>
+<h2 id="什么是IOC"><a href="#什么是IOC" class="headerlink" title="什么是IOC"></a>什么是IOC</h2><blockquote>
+<p>IOC即”控制反转”,不是什么技术,而是一种设计思想.ioc意味着将你设计好的对象交给容器控制,而不是传统的在你的对象内部直接控制.</p>
+</blockquote>
+<p>简单的用代码表示就是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原来方式</span></span><br><span class="line">User user=<span class="keyword">new</span> User();</span><br><span class="line"><span class="comment">//IOC获取实例</span></span><br><span class="line">User user = (User) factory.getBean(<span class="string">"user"</span>);</span><br></pre></td></tr></table></figure>
+<p>IOC容器设计图</p>
+<p><img src="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-06-083631.png" alt="来自spring技术内幕"></p>
+<p>从图上可以看到<code>BeanFactory</code>是最顶层的接口,在spring中所有的Bean都由BeanFactory管理,BeanFactory里面包括的IOC最基本的方法比如<code>getBean</code>,其子接口在其基础上细化了更多的功能,比如<code>AutowireCapableBeanFactory</code>这个容器中就添加了创建Bean和初始化Bean等方法</p>
+<h2 id="编程式使用IOC"><a href="#编程式使用IOC" class="headerlink" title="编程式使用IOC"></a>编程式使用IOC</h2><p>开始分析源码前先使用编程式使用IOC用于调试,使用编程式而没有采用常用的注解,是因为编程式可以很清晰的看出IOC其关键类和基本的流程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定位resource</span></span><br><span class="line">ClassPathResource res = <span class="keyword">new</span> ClassPathResource(<span class="string">"spring-mvc.xml"</span>);</span><br><span class="line"><span class="comment">//创建工厂</span></span><br><span class="line">DefaultListableBeanFactory factory = <span class="keyword">new</span> DefaultListableBeanFactory();</span><br><span class="line"><span class="comment">//选择资源读取器</span></span><br><span class="line">XmlBeanDefinitionReader reader = <span class="keyword">new</span> XmlBeanDefinitionReader(factory);</span><br><span class="line"><span class="comment">//读取资源,并将结果放入工厂</span></span><br><span class="line">reader.loadBeanDefinitions(res);</span><br><span class="line"><span class="comment">//获取对象</span></span><br><span class="line">User user = factory.getBean(<span class="string">"user"</span>, User.class);</span><br></pre></td></tr></table></figure>
+<h2 id="IOC基本流程"><a href="#IOC基本流程" class="headerlink" title="IOC基本流程"></a>IOC基本流程</h2><p><img src="http://7fvicu.com1.z0.glb.clouddn.com/2018-03-06-090659.jpg" alt="IOC基本流程"></p>
+<p>后面的文章将会对这几个步骤分别分析,了解spring是如何实现IOC的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/19/spring源码解析-开篇/" data-id="cjjpeiueq0000zw5m2r1l6nil" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/06/log4j配置经验/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          log4j配置经验
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/06/log4j配置经验/">log4j配置经验</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/spring源码解析-开篇/">spring源码解析-开篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
