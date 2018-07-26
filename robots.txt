@@ -6,3 +6,6 @@ Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
+
+Sitemap: https://blog.lialzm.com/sitemap.xml
+Sitemap: https://blog.lialzm.com/baidusitemap.xml
