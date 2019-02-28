@@ -83,16 +83,16 @@
 <meta name="keywords" content="java,并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java中的锁-显性锁">
-<meta property="og:url" content="https://blog.lialzm.com/2018/04/06/java中的锁/index.html">
+<meta property="og:url" content="https://blog.lialzm.com/2018/02/28/java中的锁/index.html">
 <meta property="og:site_name" content="lialzm的博客">
 <meta property="og:description" content="定义锁(Lock)和synchronized同步块一样，是一种线程同步机制 Lock 接口及其主要实现类都位于java.util.concurrent.locks包下 我们这里的显性锁主要指locks包下的 java常用锁 锁的种类 对于 Java 锁的分类没有严格意义的规则，我们常说的分类一般都是依据锁的特性、锁的设计、锁的状态等进行归纳整理的  公平锁、非公平锁：公平锁指多个线程按照申请锁的顺">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-04-21-084134.png">
-<meta property="og:updated_time" content="2018-06-08T06:33:25.000Z">
+<meta property="og:image" content="http://www.plantuml.com/plantuml/svg/ZOun3i8m34LdV0gFiEG2ZAnCNPYZr4Y6n4690qYeToTDGK2x87cm_BwUFpXlSyPSn0JEpkoZEpy01e09xABqh1nb14Xt9UbdSPpoB4hfQ1tXoLwjAShUk2Ykf4IYnjTaNkWxgYnPqIRYSF4KwYN_v_YyxCZsXyHABxXglbIluxBUR04Gwo0sS7j76rcs-T5zrvh_6Pu0">
+<meta property="og:updated_time" content="2019-02-28T04:26:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java中的锁-显性锁">
 <meta name="twitter:description" content="定义锁(Lock)和synchronized同步块一样，是一种线程同步机制 Lock 接口及其主要实现类都位于java.util.concurrent.locks包下 我们这里的显性锁主要指locks包下的 java常用锁 锁的种类 对于 Java 锁的分类没有严格意义的规则，我们常说的分类一般都是依据锁的特性、锁的设计、锁的状态等进行归纳整理的  公平锁、非公平锁：公平锁指多个线程按照申请锁的顺">
-<meta name="twitter:image" content="http://7fvicu.com1.z0.glb.clouddn.com/2018-04-21-084134.png">
+<meta name="twitter:image" content="http://www.plantuml.com/plantuml/svg/ZOun3i8m34LdV0gFiEG2ZAnCNPYZr4Y6n4690qYeToTDGK2x87cm_BwUFpXlSyPSn0JEpkoZEpy01e09xABqh1nb14Xt9UbdSPpoB4hfQ1tXoLwjAShUk2Ykf4IYnjTaNkWxgYnPqIRYSF4KwYN_v_YyxCZsXyHABxXglbIluxBUR04Gwo0sS7j76rcs-T5zrvh_6Pu0">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="https://blog.lialzm.com/2018/04/06/java中的锁/"/>
+  <link rel="canonical" href="https://blog.lialzm.com/2018/02/28/java中的锁/"/>
 
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.lialzm.com/2018/04/06/java中的锁/">
+    <link itemprop="mainEntityOfPage" href="https://blog.lialzm.com/2018/02/28/java中的锁/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="lialzm">
@@ -274,8 +274,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-06T22:30:00+08:00">
-                2018-04-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-28T22:30:00+08:00">
+                2018-02-28
               </time>
             
 
@@ -293,9 +293,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/06/java中的锁/#comments" itemprop="discussionUrl">
+                <a href="/2018/02/28/java中的锁/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/06/java中的锁/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/02/28/java中的锁/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -326,7 +326,7 @@
         <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>锁(Lock)和synchronized同步块一样，是一种线程同步机制</p>
 <p>Lock 接口及其主要实现类都位于java.util.concurrent.locks包下</p>
 <p><strong>我们这里的显性锁主要指locks包下的</strong></p>
-<h2 id="java常用锁"><a href="#java常用锁" class="headerlink" title="java常用锁"></a>java常用锁</h2><p><img src="http://7fvicu.com1.z0.glb.clouddn.com/2018-04-21-084134.png" alt=""></p>
+<h2 id="java常用锁"><a href="#java常用锁" class="headerlink" title="java常用锁"></a>java常用锁</h2><img src="http://www.plantuml.com/plantuml/svg/ZOun3i8m34LdV0gFiEG2ZAnCNPYZr4Y6n4690qYeToTDGK2x87cm_BwUFpXlSyPSn0JEpkoZEpy01e09xABqh1nb14Xt9UbdSPpoB4hfQ1tXoLwjAShUk2Ykf4IYnjTaNkWxgYnPqIRYSF4KwYN_v_YyxCZsXyHABxXglbIluxBUR04Gwo0sS7j76rcs-T5zrvh_6Pu0">
 <h2 id="锁的种类"><a href="#锁的种类" class="headerlink" title="锁的种类"></a>锁的种类</h2><blockquote>
 <p>对于 Java 锁的分类没有严格意义的规则，我们常说的分类一般都是依据锁的特性、锁的设计、锁的状态等进行归纳整理的</p>
 </blockquote>
@@ -392,6 +392,13 @@
 <p>在ReentrantLock中使用<code>lock.newCondition()</code>替代</p>
 <p>condition.await()相当于wait</p>
 <p>condition.signal()相当于notify</p>
+<p>优点:await方法和signal方法内部调用了<code>LockSupport</code>方法,signal可以在await之前调用,且不需要在<code>Synchronized</code>中获取锁</p>
+<h2 id="LockSupport"><a href="#LockSupport" class="headerlink" title="LockSupport"></a>LockSupport</h2><blockquote>
+<p>LockSupport是用来创建锁和其他同步类的基本线程阻塞原语,相当于拥有一个许可证的Semaphore</p>
+</blockquote>
+<p>主要API: park 获取许可证,如果获取不到则堵塞(有例外情况),unpark 释放许可证</p>
+<p>park和unpark是静态方法,park在哪个线程调用哪个线程就阻塞,unpark传入个Thread对象<br>park 还各自支持一个 blocker 对象参数。此对象在线程受阻塞时被记录，以允许监视工具和诊断工具确定线程受阻塞的原因。（这样的工具可以使用方法 getBlocker(java.lang.Thread) 访问 blocker。）建议最好使用这些形式，而不是不带此参数的原始形式</p>
+<h2 id="自己实现乐观独占锁"><a href="#自己实现乐观独占锁" class="headerlink" title="自己实现乐观独占锁"></a>自己实现乐观独占锁</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TheardTest015</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AtomicBoolean isLock = <span class="keyword">new</span> AtomicBoolean(<span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Queue&lt;Thread&gt; deque = <span class="keyword">new</span> LinkedBlockingQueue();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isLock.compareAndSet(<span class="keyword">false</span>, <span class="keyword">true</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            deque.offer(Thread.currentThread());</span><br><span class="line">            LockSupport.park();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isLock.compareAndSet(<span class="keyword">true</span>, <span class="keyword">false</span>)) &#123;</span><br><span class="line">            LockSupport.unpark(deque.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">        TheardTest015 t15 = <span class="keyword">new</span> TheardTest015();</span><br><span class="line"></span><br><span class="line">        Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                t15.lock();</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    System.out.println(<span class="string">"线程1开始"</span>);</span><br><span class="line">                    TimeUnit.SECONDS.sleep(<span class="number">10</span>);</span><br><span class="line">                    System.out.println(<span class="string">"线程1结束"</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    t15.unlock();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        Thread thread2 = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                t15.lock();</span><br><span class="line">                System.out.println(<span class="string">"线程2开始运行"</span>);</span><br><span class="line">                t15.unlock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        thread.start();</span><br><span class="line">        TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">        thread2.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -424,18 +431,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/06/Java内存模型学习笔记/" rel="next" title="Java内存模型学习笔记">
-                <i class="fa fa-chevron-left"></i> Java内存模型学习笔记
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/19/java并发(Synchronized关键字)/" rel="prev" title="java并发(Synchronized关键字)">
-                java并发(Synchronized关键字) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/19/spring源码解析-开篇/" rel="prev" title="spring源码解析-开篇">
+                spring源码解析-开篇 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java常用锁"><span class="nav-number">2.</span> <span class="nav-text">java常用锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的种类"><span class="nav-number">3.</span> <span class="nav-text">锁的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的可重入性"><span class="nav-number">4.</span> <span class="nav-text">锁的可重入性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个可重入锁"><span class="nav-number">5.</span> <span class="nav-text">实现一个可重入锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lock和synchronized的区别"><span class="nav-number">6.</span> <span class="nav-text">lock和synchronized的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">7.</span> <span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础例子"><span class="nav-number">8.</span> <span class="nav-text">基础例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公平性"><span class="nav-number">9.</span> <span class="nav-text">公平性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替代Synchronized"><span class="nav-number">10.</span> <span class="nav-text">替代Synchronized</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java常用锁"><span class="nav-number">2.</span> <span class="nav-text">java常用锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的种类"><span class="nav-number">3.</span> <span class="nav-text">锁的种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的可重入性"><span class="nav-number">4.</span> <span class="nav-text">锁的可重入性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现一个可重入锁"><span class="nav-number">5.</span> <span class="nav-text">实现一个可重入锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lock和synchronized的区别"><span class="nav-number">6.</span> <span class="nav-text">lock和synchronized的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">7.</span> <span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础例子"><span class="nav-number">8.</span> <span class="nav-text">基础例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公平性"><span class="nav-number">9.</span> <span class="nav-text">公平性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替代Synchronized"><span class="nav-number">10.</span> <span class="nav-text">替代Synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LockSupport"><span class="nav-number">11.</span> <span class="nav-text">LockSupport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己实现乐观独占锁"><span class="nav-number">12.</span> <span class="nav-text">自己实现乐观独占锁</span></a></li></ol></div>
             
 
           </div>
@@ -732,8 +735,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://blog.lialzm.com/2018/04/06/java中的锁/';
-          this.page.identifier = '2018/04/06/java中的锁/';
+          this.page.url = 'https://blog.lialzm.com/2018/02/28/java中的锁/';
+          this.page.identifier = '2018/02/28/java中的锁/';
           this.page.title = 'java中的锁-显性锁';
         };
         var d = document, s = d.createElement('script');

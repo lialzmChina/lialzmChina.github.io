@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://blog.lialzm.com/2018/02/28/java%E4%B8%AD%E7%9A%84%E9%94%81/</loc>
+    <lastmod>2019-02-28T04:26:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>java中的锁-显性锁</title>
+        <pubTime>2018-02-28T14:30:00.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>并发</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.lialzm.com/2019/02/28/%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1/</loc>
     <lastmod>2019-02-28T03:50:50.000Z</lastmod>
     <data>
@@ -209,25 +228,6 @@
         <tag>java</tag>
          
         <tag>jvm</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.lialzm.com/2018/04/06/java%E4%B8%AD%E7%9A%84%E9%94%81/</loc>
-    <lastmod>2018-06-08T06:33:25.000Z</lastmod>
-    <data>
-        <display>
-        <title>java中的锁-显性锁</title>
-        <pubTime>2018-04-06T14:30:00.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>并发</tag>
          
          
            
